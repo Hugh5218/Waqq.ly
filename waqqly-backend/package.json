@@ -1,0 +1,11 @@
+{
+  "name": "waqqly-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "mongodb": "^4.17.2"
+  }
+}
