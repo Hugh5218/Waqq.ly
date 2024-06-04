@@ -18,7 +18,8 @@ module.exports = async function (context, req) {
         return;
     }
 
-    const uri = process.env.MONGO_DB_CONNECTION_STRING;
+    // const uri = process.env.MONGO_DB_CONNECTION_STRING;
+    const uri = 'mongodb+srv://waqqlyadmin:webpassword@waqqly.w1ozwza.mongodb.net/';
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
     try {
