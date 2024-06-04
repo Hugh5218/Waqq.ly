@@ -24,7 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Pet Data:', data);
             alert('Pet registered successfully!');
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to register pet.');
+        });
     });
 
     document.getElementById('walkerForm').addEventListener('submit', function(event) {
@@ -52,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Walker Data:', data);
             alert('Walker registered successfully!');
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to register walker.');
+        });
     });
 });

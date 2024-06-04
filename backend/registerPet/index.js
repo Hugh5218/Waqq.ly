@@ -30,10 +30,10 @@ module.exports = async function (context, req) {
 
         context.res = {
             status: 201,
-            body: result
+            body: result.ops[0]
         };
     } catch (error) {
-        context.log('Error inserting pet:', error);
+        context.log('Error inserting pet:', error.message);
         context.res = {
             status: 500,
             body: "Internal Server Error"
