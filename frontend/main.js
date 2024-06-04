@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             breed: document.getElementById('petBreed').value
         };
 
-        fetch('https://waqqlydogwalking.azurewebsites.net/api/registerPet?', {
+        fetch('https://waqqlydogwalking.azurewebsites.net/api/registerPet', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contact: document.getElementById('walkerContact').value
         };
 
-        fetch('https://waqqlydogwalking.azurewebsites.net/api/registerWalker?', {
+        fetch('https://waqqlydogwalking.azurewebsites.net/api/registerWalker', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
