@@ -1,7 +1,30 @@
-const { MongoClient } = require('mongodb');
+import { app } from "@azure/functions";
 
-module.exports = async function (context, req) {
-    context.log('Function registerPet is starting.');
+async function registerPet(request, context) {
+    context.log(`Http function processed request for url "${request.url}"`);
+
+    return {
+        status: 200,
+        jsonBody: {
+            env: process.env
+        }
+    };
+};
+
+app.http('registerPet', {
+    route: "registerPet",
+    methods: ['GET'],
+    authLevel: 'anonymous',
+    handler: registerPet
+});
+
+module.exports = registerPet
+
+
+// const { MongoClient } = require('mongodb');
+
+// module.exports = async function (context, req) {
+//     context.log('Function registerPet is starting.');
 
 //     const uri = "mongodb+srv://waqqlyadmin:wadmin@waqqly.w1ozwza.mongodb.net/waqqlydb";
 //     context.log('MongoDB connection string:', uri);
@@ -45,4 +68,4 @@ module.exports = async function (context, req) {
 //         context.log('MongoDB connection closed.');
 //     }
 //     context.log('Function registerPet has finished.');
-};
+// };
