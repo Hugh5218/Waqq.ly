@@ -2,10 +2,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('petForm').addEventListener('submit', function(event) {
         event.preventDefault();
         const petData = {
-            name: document.getElementById('petName').value,
-            age: document.getElementById('petAge').value,
-            breed: document.getElementById('petBreed').value
+            name:'Bob' ,
+            age: '12',
+            breed: 'test'
         };
+        // const petData = {
+        //     name: document.getElementById('petName').value,
+        //     age: document.getElementById('petAge').value,
+        //     breed: document.getElementById('petBreed').value
+        // };
 
         fetch('https://waqqlydogwalking.azurewebsites.net/api/registerPet', {
             method: 'POST',
