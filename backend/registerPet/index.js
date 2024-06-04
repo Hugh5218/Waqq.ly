@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
     }
 
     // const uri = process.env.MONGO_DB_CONNECTION_STRING;
-    const uri = 'mongodb+srv://waqqlyadmin:webpassword@waqqly.w1ozwza.mongodb.net/';
+    const uri = 'mongodb+srv://waqqlyadmin:webpassword@waqqly.w1ozwza.mongodb.net/waqqlydb?retryWrites=true&w=majority&tls=true';
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
     try {
@@ -45,7 +45,7 @@ module.exports = async function (context, req) {
     } catch (error) {
         context.res = {
             status: 500,
-            body: `Internal Server Error: ${error.message}`
+            body: `TESTTTT Internal Server Error: ${error.message}`
         };
     } finally {
         await client.close();
