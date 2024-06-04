@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('petForm').addEventListener('submit', function(event) {
+    const petForm = document.getElementById('petForm');
+    const walkerForm = document.getElementById('walkerForm');
+    const petsList = document.getElementById('petsList');
+    const walkersList = document.getElementById('walkersList');
+
+    petForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const petData = {
             name: document.getElementById('petName').value,
@@ -21,21 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            console.log('Pet Data:', data);
             alert('Pet registered successfully!');
+            loadPets();
         })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to register pet.');
-        });
+        .catch(error => console.error('Error:', error));
     });
 
-    document.getElementById('walkerForm').addEventListener('submit', function(event) {
+    walkerForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const walkerData = {
             name: document.getElementById('walkerName').value,
             experience: document.getElementById('walkerExperience').value,
-            location: document.getElementById('walkerLocation').value,
             contact: document.getElementById('walkerContact').value
         };
 
@@ -53,12 +54,40 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(data => {
-            console.log('Walker Data:', data);
             alert('Walker registered successfully!');
+            loadWalkers();
         })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to register walker.');
-        });
+        .catch(error => console.error('Error:', error));
     });
+
+    function loadPets() {
+        fetch('https://waqqlydogwalking.azurewebsites.net/api/getPets')
+        .then(response => response.json())
+        .then(data => {
+            petsList.innerHTML = '';
+            data.forEach(pet => {
+                const li = document.createElement('li');
+                li.textContent = `${pet.name} (${pet.breed}, ${pet.age} years old)`;
+                petsList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function loadWalkers() {
+        fetch('https://waqqlydogwalking.azurewebsites.net/api/getWalkers')
+        .then(response => response.json())
+        .then(data => {
+            walkersList.innerHTML = '';
+            data.forEach(walker => {
+                const li = document.createElement('li');
+                li.textContent = `${walker.name} (${walker.experience} years experience, contact: ${walker.contact})`;
+                walkersList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    loadPets();
+    loadWalkers();
 });

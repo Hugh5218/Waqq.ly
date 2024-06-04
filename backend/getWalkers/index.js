@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 module.exports = async function (context, req) {
-    context.log('Function registerPet is starting.');
+    context.log('Function getWalkers is starting.');
 
     const uri = process.env.MONGO_DB_CONNECTION_STRING;
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -9,22 +9,13 @@ module.exports = async function (context, req) {
     try {
         await client.connect();
         const database = client.db('waqqlydb');
-        const pets = database.collection('pets');
+        const walkers = database.collection('walkers');
 
-        if (!req.body) {
-            context.res = {
-                status: 400,
-                body: "Invalid input"
-            };
-            return;
-        }
-
-        const newPet = req.body;
-        const result = await pets.insertOne(newPet);
+        const walkersList = await walkers.find({}).toArray();
 
         context.res = {
-            status: 201,
-            body: result.ops[0]
+            status: 200,
+            body: walkersList
         };
     } catch (error) {
         context.res = {
