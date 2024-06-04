@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     breed: document.getElementById('petBreed').value
         // };
 
+        console.log('about to fetch.');
         fetch('https://waqqlydogwalking.azurewebsites.net/api/registerPet', {
             method: 'POST',
             headers: {
