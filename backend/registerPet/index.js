@@ -3,46 +3,46 @@ const { MongoClient } = require('mongodb');
 module.exports = async function (context, req) {
     context.log('Function registerPet is starting.');
 
-    const uri = "mongodb+srv://waqqlyadmin:wadmin@waqqly.w1ozwza.mongodb.net/waqqlydb";
-    context.log('MongoDB connection string:', uri);
+//     const uri = "mongodb+srv://waqqlyadmin:wadmin@waqqly.w1ozwza.mongodb.net/waqqlydb";
+//     context.log('MongoDB connection string:', uri);
 
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+//     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    try {
-        await client.connect();
-        context.log('Connected to MongoDB.');
+//     try {
+//         await client.connect();
+//         context.log('Connected to MongoDB.');
 
-        const database = client.db('waqqlydb');
-        const pets = database.collection('pets');
+//         const database = client.db('waqqlydb');
+//         const pets = database.collection('pets');
 
-        if (!req.body) {
-            context.log('Invalid input received.');
-            context.res = {
-                status: 400,
-                body: "Invalid input"
-            };
-            return;
-        }
+//         if (!req.body) {
+//             context.log('Invalid input received.');
+//             context.res = {
+//                 status: 400,
+//                 body: "Invalid input"
+//             };
+//             return;
+//         }
 
-        const newPet = req.body;
-        context.log('Inserting new pet:', newPet);
+//         const newPet = req.body;
+//         context.log('Inserting new pet:', newPet);
 
-        const result = await pets.insertOne(newPet);
-        context.log('Insert result:', result);
+//         const result = await pets.insertOne(newPet);
+//         context.log('Insert result:', result);
 
-        context.res = {
-            status: 201,
-            body: result.ops[0]
-        };
-    } catch (error) {
-        context.log('Error inserting pet:', error.message);
-        context.res = {
-            status: 500,
-            body: `Internal Server Error: ${error.message}`
-        };
-    } finally {
-        await client.close();
-        context.log('MongoDB connection closed.');
-    }
-    context.log('Function registerPet has finished.');
+//         context.res = {
+//             status: 201,
+//             body: result.ops[0]
+//         };
+//     } catch (error) {
+//         context.log('Error inserting pet:', error.message);
+//         context.res = {
+//             status: 500,
+//             body: `Internal Server Error: ${error.message}`
+//         };
+//     } finally {
+//         await client.close();
+//         context.log('MongoDB connection closed.');
+//     }
+//     context.log('Function registerPet has finished.');
 };
