@@ -3,13 +3,15 @@ const { MongoClient } = require('mongodb');
 module.exports = async function (context, req) {
     context.log('Function registerPet is starting.');
 
-    const uri = process.env.MONGO_DB_CONNECTION_STRING;
+    const uri = "mongodb+srv://hughd:webpassword@waqqly.w1ozwza.mongodb.net/";
     context.log('MongoDB connection string:', uri);
+
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
     try {
         await client.connect();
         context.log('Connected to MongoDB.');
+
         const database = client.db('waqqlydb');
         const pets = database.collection('pets');
 
@@ -36,7 +38,7 @@ module.exports = async function (context, req) {
         context.log('Error inserting pet:', error.message);
         context.res = {
             status: 500,
-            body: "Internal Server Error"
+            body: `Internal Server Error: ${error.message}`
         };
     } finally {
         await client.close();
