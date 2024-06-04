@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 module.exports = async function (context, req) {
     context.log('Function registerWalker is starting.');
 
-    const uri = "mongodb+srv://waqqlyadmin:wadmin@waqqly.w1ozwza.mongodb.net/waqqlydb";
+   const uri = process.env.MONGO_DB_CONNECTION_STRING;
     context.log('MongoDB connection string:', uri);
 
     const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
