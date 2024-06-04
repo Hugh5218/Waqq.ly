@@ -10,7 +10,7 @@ body {
 }
 
 #app {
-    background-color: white;
+    background-color: rgb(146, 146, 146);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -53,14 +53,14 @@ input {
 }
 
 input:focus {
-    border-color: #007BFF;
+    border-color: #00ff15;
     outline: none;
 }
 
 button {
     margin-top: 20px;
     padding: 12px;
-    background-color: #007BFF;
+    background-color: #15a42f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -70,7 +70,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #1dc711;
 }
 
 @media (min-width: 600px) {
