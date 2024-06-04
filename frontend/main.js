@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const walkerData = {
             name: document.getElementById('walkerName').value,
             experience: document.getElementById('walkerExperience').value,
+            location: document.getElementById('walkerLocation').value,
             contact: document.getElementById('walkerContact').value
         };
 
