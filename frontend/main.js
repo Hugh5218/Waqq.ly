@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             petsList.innerHTML = '';
             data.forEach(pet => {
                 const li = document.createElement('li');
-                li.textContent = `<span class="bold">${pet.name}</span> (${pet.breed}, ${pet.age} Years Old)`;
+                li.textContent = `${pet.name} (${pet.breed}, ${pet.age} Years Old)`;
                 petsList.appendChild(li);
             });
         })
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             walkersList.innerHTML = '';
             data.forEach(walker => {
                 const li = document.createElement('li');
-                li.textContent = `<span class="bold">${walker.name}</span> (${walker.experience} Years Experience, Location: ${walker.location}, Contact: ${walker.contact})`;
+                li.textContent = `${walker.name} (${walker.experience} Years Experience, Location: ${walker.location}, Contact: ${walker.contact})`;
                 walkersList.appendChild(li);
             });
         })
