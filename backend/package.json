@@ -5,6 +5,7 @@
     "start": "func start"
   },
   "dependencies": {
+    "@azure/cosmos": "^4.0.0",
     "mongodb": "^4.17.2"
   }
 }
