@@ -16,7 +16,7 @@ body {
 header {
     text-align: center;
     padding: 20px 0;
-    background-color: #007BFF;
+    background-color: #4CAF50;
     color: white;
 }
 
@@ -39,7 +39,7 @@ main {
 .form-section h2 {
     margin-bottom: 20px;
     font-size: 1.5em;
-    color: #007BFF;
+    color: #333;
 }
 
 .form {
@@ -65,7 +65,7 @@ main {
 
 .btn {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
@@ -75,7 +75,7 @@ main {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
 .list {
