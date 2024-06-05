@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
             id: Date.now().toString(),
             name: document.getElementById('petName').value,
             age: document.getElementById('petAge').value,
-            breed: document.getElementById('petBreed').value
+            breed: document.getElementById('petBreed').value,
+            location: document.getElementById('petLocation').value,
+            contact: document.getElementById('petContact').value
         };
 
         fetch('https://waqqlydogwalking.azurewebsites.net/api/registerPet', {
@@ -85,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             petsList.innerHTML = '';
             data.forEach(pet => {
                 const li = document.createElement('li');
-                li.textContent = `${pet.name} (${pet.breed}, ${pet.age} Years Old)`;
+                li.textContent = `${pet.name} (${pet.age} Years Old, Breed: ${pet.breed}, Owner Location: ${pet.location}, Owner Contact: ${pet.contact})`;
                 petsList.appendChild(li);
             });
         })
