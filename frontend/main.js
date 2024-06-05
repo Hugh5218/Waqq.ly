@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     petForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const petData = {
+            id: Date.now().toString(),
             name: document.getElementById('petName').value,
             age: document.getElementById('petAge').value,
             breed: document.getElementById('petBreed').value
@@ -21,20 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                return response.text().then(text => { throw new Error(text) });
             }
             return response.json();
         })
         .then(data => {
+            console.log('Pet Data:', data);
             alert('Pet registered successfully!');
             loadPets();
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert(`Failed to register pet: ${error.message}`);
+        });
     });
 
     walkerForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const walkerData = {
+            id: Date.now().toString(),
             name: document.getElementById('walkerName').value,
             experience: document.getElementById('walkerExperience').value,
             contact: document.getElementById('walkerContact').value
@@ -49,20 +55,29 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                return response.text().then(text => { throw new Error(text) });
             }
             return response.json();
         })
         .then(data => {
+            console.log('Walker Data:', data);
             alert('Walker registered successfully!');
             loadWalkers();
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert(`Failed to register walker: ${error.message}`);
+        });
     });
 
     function loadPets() {
         fetch('https://waqqlydogwalking.azurewebsites.net/api/getPets')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text) });
+            }
+            return response.json();
+        })
         .then(data => {
             petsList.innerHTML = '';
             data.forEach(pet => {
@@ -71,12 +86,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 petsList.appendChild(li);
             });
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert(`Failed to load pets: ${error.message}`);
+        });
     }
 
     function loadWalkers() {
         fetch('https://waqqlydogwalking.azurewebsites.net/api/getWalkers')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => { throw new Error(text) });
+            }
+            return response.json();
+        })
         .then(data => {
             walkersList.innerHTML = '';
             data.forEach(walker => {
@@ -85,9 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 walkersList.appendChild(li);
             });
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert(`Failed to load walkers: ${error.message}`);
+        });
     }
 
     loadPets();
     loadWalkers();
 });
+
