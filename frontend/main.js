@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             console.log('Pet Data:', data);
             alert('Pet registered successfully!');
+            petForm.reset();
             loadPets();
         })
         .catch(error => {
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: Date.now().toString(),
             name: document.getElementById('walkerName').value,
             experience: document.getElementById('walkerExperience').value,
+            location: document.getElementById('walkerLocation').value,
             contact: document.getElementById('walkerContact').value
         };
 
@@ -62,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             console.log('Walker Data:', data);
             alert('Walker registered successfully!');
+            walkerForm.reset();
             loadWalkers();
         })
         .catch(error => {
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             walkersList.innerHTML = '';
             data.forEach(walker => {
                 const li = document.createElement('li');
-                li.textContent = `${walker.name} (${walker.experience} years experience, contact: ${walker.contact})`;
+                li.textContent = `${walker.name} (${walker.experience} years experience, location: ${walker.location}, contact: ${walker.contact})`;
                 walkersList.appendChild(li);
             });
         })
