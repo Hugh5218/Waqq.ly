@@ -3,7 +3,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #929292;
     color: #333;
 }
 
@@ -27,7 +27,7 @@ header h1 {
 
 main {
     padding: 20px;
-    background: rgb(88, 88, 88);
+    background: rgb(138, 30, 6);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
