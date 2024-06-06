@@ -13,11 +13,11 @@ So that the code and Waqq.ly web application can be properly marked, please foll
 
 
 Requirements:
-Visual Studio Code
-Azure Account
-Node.js (version 14)
-Azure VSCode Extension
-Azure Functions Core Tools (version 3)
+Visual Studio Code | 
+Azure Account | 
+Node.js (version 14) | 
+Azure VSCode Extension | 
+Azure Functions Core Tools (version 3) | 
 Azure Cosmos DB Account
 
 
