@@ -1,6 +1,14 @@
 # Waqq.ly
 A cloud-based Web App that helps dog owners identify dog walkers in their area. (A submission for the module BS3928 - Cloud Computing and Infrastructure at The University of Winchester)
 
+
+Waqq.ly Static Web App URL:
+https://agreeable-pebble-031a20b03.5.azurestaticapps.net
+
+GitHub Repository Link:
+https://github.com/Hugh5218/Waqq.ly.git
+
+
 So that the code and Waqq.ly web application can be properly marked, please follow the instructions below to deploy the working prototype if needs be.
 
 
@@ -11,6 +19,7 @@ Node.js (version 14)
 Azure VSCode Extension
 Azure Functions Core Tools (version 3)
 Azure Cosmos DB Account
+
 
 Frontend Deployment:
 1. Clone the GitHub repository to your local machine from the link provided above or in the report.
