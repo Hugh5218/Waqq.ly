@@ -43,4 +43,6 @@ Backend Deployment:
 5. Log in to the Azure extension in VSCode, find the created function app and deploy the 'backend' folder to it.
 
 
+!! While developing the prototype and trying to access the URL, AVAST anti-virus did not allow access to it. If you cannot connect to the website please make sure the Waqq.ly website is in the list of exclusions within your installed anti-virus software.
+
 The full Waqq.ly application should then be deployed and functional on the static web app URL.
